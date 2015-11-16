@@ -6,12 +6,13 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
 var styleFiles = [
-        'css/less/main.scss'
+        'css/sass/main.scss'
     ];
 var jsFiles = [
 		'bower_components/jquery/dist/jquery.js',
 		'bower_components/angular/angular.js',
-		'js/src/main.js'
+		'bower_components/angular-route/angular-route.js',
+		'js/src/app.js'
 	];
 
 
@@ -20,19 +21,19 @@ gulp.task('styles', function() {
     gulp.src(styleFiles)
         .pipe(concat('main.css'))
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('css/'));
+        .pipe(gulp.dest('./css/'));
 });
 
 gulp.task('scripts', function(){
 	gulp.src(jsFiles)
 		.pipe(concat('app.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest('js/'))
+		// .pipe(uglify())
+		.pipe(gulp.dest('./js/'))
 		.on('error', gutil.log);
 });
 
 gulp.task('watch', function(){
-    gulp.watch(['css/less/*.less'], ['styles']);
+    gulp.watch(['css/sass/*.scss'], ['styles']);
     gulp.watch(['js/src/*.js'], ['scripts']);
 });
 

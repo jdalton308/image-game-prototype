@@ -3,13 +3,46 @@
 //============================
 
 //// COLORS ////
+
 $black:		    #000;
 $grey:		    #666;
-$lightGrey:	  	#999;
-$lighterGrey:   #bbb;
-$offWhite: 		#FAFAFA;
+$light-grey:	#999;
+$lighter-grey:  #bbb;
+$off-white: 	#FAFAFA;
 $white: 		#FFF;
+
+$lighter-green: 	#ecf1e7;
+$light-green: 		#d6e1ca;
+$green: 			#75a955;
+
+$text-color: 	$light-grey;
 
 
 
 //// FONTS ////
+
+$body-fonts: 'Trade Gothic', arial, sans-serif;
+
+
+
+//// MIXINS ////
+
+@mixin transition($time: 0.3s) {
+	-webkit-transition: $time all;
+	transition: $time all;
+}
+
+
+
+//// TYPOGRAPHY ////
+
+@font-face {
+	font-family: 'Trade Gothic';
+	font-weight: 400;
+	src: url('/css/fonts/Trade-Gothic-LT.ttf');
+}
+@font-face {
+	font-family: 'Trade Gothic';
+	font-weight: 700;
+	src: url('/css/fonts/Trade-Gothic-LT-Bold.ttf');
+}

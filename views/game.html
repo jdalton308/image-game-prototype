@@ -1,0 +1,27 @@
+<div class="view-game">
+	<div class="timer">
+		<div class="timer-bar"></div>
+	</div>
+	<div class="game-area">
+		<div class="play-photo">
+			<div class="blank" ng-repeat="(index, coord) in game.currentImg">
+				<div class="touch-area" ng-touch="foundOne(index)" ng-style="{'left': coord.x, 'top': coord.y}"></div>
+			</div>
+		</div><!-- comment to remove spacing
+	 --><div class="ref-photo">
+			<div class="blank" ng-repeat="(index, coord) in game.currentImg">
+				<div class="touch-area" ng-style="{'left': coord.x, 'top': coord.y}"></div>
+			</div>
+		</div>
+	</div>
+	<div class="status-bar">
+		<div class="checkboxes">
+			<div class="box checked"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div>
+
+		<button ng-click="giveUp()">I GIVE UP</button>
+	</div> 
+</div>
