@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "image-game-prototype",
   "version": "0.0.0",
   "authors": [
     "Joe Dalton <jdalton308@yahoo.com>"
@@ -21,5 +21,8 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4"
+  },
+  "devDependencies": {
+    "angular": "~1.4.7"
   }
 }

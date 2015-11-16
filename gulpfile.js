@@ -1,15 +1,16 @@
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var less = require('gulp-less');
+var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
 var styleFiles = [
-        'css/less/main.less'
+        'css/less/main.scss'
     ];
 var jsFiles = [
-		'bower_components/jquery/dist/jquery.min.js',
+		'bower_components/jquery/dist/jquery.js',
+		'bower_components/angular/angular.js',
 		'js/src/main.js'
 	];
 
@@ -18,7 +19,7 @@ var jsFiles = [
 gulp.task('styles', function() {
     gulp.src(styleFiles)
         .pipe(concat('main.css'))
-        .pipe(less())
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('css/'));
 });
 
