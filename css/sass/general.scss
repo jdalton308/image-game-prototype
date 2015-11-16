@@ -57,6 +57,7 @@ button,
 	background-color: $text-color;
 	font-family: $body-fonts;
 	color: $white;
+	cursor: pointer;
 
 	border-radius: 0;
 	border: 0;
@@ -73,7 +74,9 @@ button,
 //------------------------
 
 .view-intro,
-.view-how {
+.view-how,
+.view-win,
+.view-thanks {
 	width: 100%;
 	height: 100%;
 	padding: 40vh 10px 10px;
@@ -82,7 +85,8 @@ button,
 	h1 {
 		font-size: 15vh;
 		line-height: 1em;
-		margin-bottom: 12vh;
+		max-width: 75%;
+		margin: 0 auto 12vh;
 	}
 	button {
 		font-size: 6vh;
@@ -92,6 +96,29 @@ button,
 .view-game {
 	padding: 2.5vh 4vh;
 
+	.message-overlay {
+		position: fixed;
+		z-index: 6;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		padding-top: 40vh;
+		text-align: center;
+
+		color: $white;
+		background-color: rgba(0,0,0, 0.5);
+
+		.message {
+			font-size: 15vh;
+			font-weight: 700;
+			margin-bottom: 12vh;
+		}
+		button {
+			font-size: 6vh;
+		}
+	}
+
 	.timer {
 		height: 8vh;
 		width: 100%;
@@ -100,8 +127,12 @@ button,
 		
 		.timer-bar {
 			height: 100%;
-			width: 83%;
+			width: 100%;
+			// padding: 1.5vh 20px;
+			font-size: 5vh;
+			color: $white;
 			background-color: $light-grey;
+			@include animate(blink, 2s);
 		}
 	}
 	.game-area {
@@ -118,16 +149,26 @@ button,
 		}
 		.play-photo {
 			background-color: $lighter-green;
+			cursor: pointer;
 		}
 		.ref-photo {
 			background-color: $light-green;
 		}
 		.touch-area {
 			position: absolute;
-			width: 10px;
-			height: 10px;
-			border-radius: 3px;
+			z-index: 5;
+			width: 15px;
+			height: 15px;
 			border: 1px solid $green;
+			@include transition(0.2s);
+
+			&.selected {
+				background-color: $green;
+			}
+		}
+		.play-area {
+			.touch-area {
+			}
 		}
 	}
 	.status-bar {
@@ -141,12 +182,17 @@ button,
 				display: inline-block;
 				height: 100%;
 				width: 8vh;
+				margin-right: 20px;
 				text-align: center;
 				background-color: $off-white;
 				border: 1px solid $green;
 
-				&:checked {
-					background-color: $green;
+				.box-check {
+					height: 100%;
+
+					&.checked {
+						background-color: $green;
+					}
 				}
 			}
 		}
