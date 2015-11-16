@@ -8,7 +8,7 @@
 
 		<div class="play-photo" ng-click="addPenalty()">
 			<div class="blank" ng-repeat="(index, coord) in game.currentImg">
-				<div class="touch-area" ng-click="foundOne(index)" ng-style="{'left': coord.x, 'top': coord.y}" ng-class="{selected: game.selectedSpots[index]}"></div>
+				<div class="touch-area" ng-click="foundOne(index); $event.stopPropagation();" ng-style="{'left': coord.x, 'top': coord.y}" ng-class="{selected: game.selectedSpots[index]}"></div>
 			</div>
 		</div><!-- comment to remove spacing
 
