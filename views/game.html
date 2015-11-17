@@ -7,13 +7,15 @@
 	<div class="game-area">
 
 		<div class="play-photo" ng-click="addPenalty()">
-			<div class="blank" ng-repeat="(index, coord) in game.currentImg">
+	 		<img ng-src="/img/side2/{{game.currentImg.src}}" alt="kitten">
+			<div class="blank" ng-repeat="(index, coord) in game.currentImg.spots">
 				<div class="touch-area" ng-click="foundOne(index); $event.stopPropagation();" ng-style="{'left': coord.x, 'top': coord.y}" ng-class="{selected: game.selectedSpots[index]}"></div>
 			</div>
 		</div><!-- comment to remove spacing
 
 	 --><div class="ref-photo">
-			<div class="blank" ng-repeat="(index, coord) in game.currentImg">
+	 		<img ng-src="/img/side1/{{game.currentImg.src}}" alt="kitten">
+			<div class="blank" ng-repeat="(index, coord) in game.currentImg.spots">
 				<div class="touch-area" ng-style="{'left': coord.x, 'top': coord.y}" ng-class="{selected: game.selectedSpots[index]}"></div>
 			</div>
 		</div>
@@ -21,7 +23,7 @@
 	</div>
 	<div class="status-bar">
 		<div class="checkboxes">
-			<div class="box" ng-repeat="(index, coord) in game.currentImg">
+			<div class="box" ng-repeat="(index, coord) in game.currentImg.spots">
 				<div class="box-check" ng-class="{checked: game.selectedSpots[index]}"></div>
 			</div>
 		</div>
