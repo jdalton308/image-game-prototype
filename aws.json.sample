@@ -1,0 +1,6 @@
+{
+  "key": "put-key-here",
+  "secret": "put-secret-key-here",
+  "bucket": "seq-techron-sandbox",
+  "region": "us-west-2"
+}

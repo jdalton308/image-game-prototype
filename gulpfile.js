@@ -1,6 +1,8 @@
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var s3 = require('gulp-s3');
+var fs = require('file-system');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -37,4 +39,16 @@ gulp.task('watch', function(){
     gulp.watch(['js/src/*.js'], ['scripts']);
 });
 
-gulp.task('default', ['styles', 'scripts', 'watch']);
+// Deploys to joe-guac.s3-website-us-west-2.amazonaws.com
+// TODO: Create 'build' directory
+gulp.task('s3', function() {
+  aws = JSON.parse(fs.readFileSync('./aws.json'));
+  gulp.src(['./**', '!aws.json', '!aws.json.sample', '!bower.json', '!gulpfile.js', '!package.json', '!README.md', '!./node_modules/**', '!./bower_components/**', '!./css/sass/**', '!./css/fonts/**'])
+    .pipe(s3(aws));
+});
+
+gulp.task('build', ['styles', 'scripts']);
+
+gulp.task('deploy', ['build', 's3']);
+
+gulp.task('default', ['build', 'watch']);
