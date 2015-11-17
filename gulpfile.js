@@ -9,7 +9,7 @@ var styleFiles = [
         'css/sass/main.scss'
     ];
 var jsFiles = [
-		'bower_components/jquery/dist/jquery.js',
+		// 'bower_components/jquery/dist/jquery.js',
 		'bower_components/angular/angular.js',
 		'bower_components/angular-route/angular-route.js',
 		'js/src/app.js'
